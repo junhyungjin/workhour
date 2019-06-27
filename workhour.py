@@ -43,8 +43,8 @@ class MyWindow(QMainWindow, form_class):
         
         self.startWorkTime.setText(now)
         endWorkTime = cur_date + datetime.timedelta(hours=9)
-        print(endWorkTime)
-        self.endWorkTimeLabel.setText(str(endWorkTime))
+        endWorkTimeStr = endWorkTime.strftime('%Y-%m-%d %H:%M:%S')
+        self.endWorkTimeLabel.setText(endWorkTimeStr)
         
     def timeout(self):
         cur_time = QTime.currentTime()
