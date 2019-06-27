@@ -11,29 +11,40 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5 import uic
 from datetime import datetime
+import datetime
 
 form_class = uic.loadUiType("workhour.ui")[0]
 
-class MyWindow(QMainWindow, form_class):  
-  
+class MyWindow(QMainWindow, form_class):    
+    
+    startWorkHour = 0
+    lateWorkHour = 0
+    endWorkHour = 0
+    
+    
       
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        cur_date=datetime.datetime.now()
+        self.weekWorkHour = datetime.datetime.strptime(str(cur_date.year) + \
+                                              '-'+ str(cur_date.month) +'-'+\
+                                              str(cur_date.day) +\
+                                              ' 9:00:00', '%Y-%m-%d %H:%M:%S')
         self.timer = QTimer(self)
         self.timer.start(1000)
         self.timer.timeout.connect(self.timeout)
-        self.curTimeBtn.clicked.connect(self.curTimeBtn_clicked)
-        self.thisWeekBtn.clicked.connect(self.thisWeekBtn_clicked)
+        self.weekWorkHourLabel.setText(str(self.weekWorkHour))
+        self.startWorkTimeBtn.clicked.connect(self.startWorkTimeBtn_clicked)
         
-    def curTimeBtn_clicked(self):
-        cur_time = QTime.currentTime()
-        now = cur_time.toString("hh:mm:ss")
-        self.startTimeEdit.setText(now)
+    def startWorkTimeBtn_clicked(self):
+        cur_date=datetime.datetime.now()
+        now = cur_date.strftime('%Y-%m-%d %H:%M:%S')
         
-    def thisWeekBtn_clicked(self):
-        self.thisWeekTime.getText()
-        
+        self.startWorkTime.setText(now)
+        endWorkTime = cur_date + datetime.timedelta(hours=9)
+        print(endWorkTime)
+        self.endWorkTimeLabel.setText(str(endWorkTime))
         
     def timeout(self):
         cur_time = QTime.currentTime()

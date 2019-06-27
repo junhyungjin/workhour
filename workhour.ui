@@ -6,69 +6,43 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>436</width>
-    <height>253</height>
+    <width>439</width>
+    <height>168</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Workhour</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>10</y>
-      <width>60</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>9</x>
       <y>9</y>
       <width>421</width>
-      <height>191</height>
+      <height>111</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_5">
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="startWorkTime"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label">
        <property name="text">
-        <string>오늘 퇴근 시간</string>
+        <string>퇴근시간:</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="4">
-      <widget class="QPushButton" name="curTimeBtn">
-       <property name="text">
-        <string>현재 시간</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="2">
-      <widget class="QLineEdit" name="thisWeekTime"/>
-     </item>
-     <item row="3" column="2">
-      <widget class="QLineEdit" name="lineEdit_2"/>
-     </item>
-     <item row="2" column="2">
-      <widget class="QLineEdit" name="lineEdit"/>
-     </item>
-     <item row="0" column="4">
-      <widget class="QPushButton" name="thisWeekBtn">
+     <item row="1" column="2">
+      <widget class="QPushButton" name="startWorkTimeBtn">
        <property name="text">
         <string>입력</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="2">
-      <widget class="QLineEdit" name="startTimeEdit">
+     <item row="2" column="1">
+      <widget class="QLabel" name="endWorkTimeLabel">
        <property name="text">
         <string/>
        </property>
@@ -77,21 +51,21 @@
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>오늘 출근 시간</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string>오늘 지각 시간</string>
+        <string>출근시간:</string>
        </property>
       </widget>
      </item>
      <item row="0" column="0">
       <widget class="QLabel" name="label_3">
        <property name="text">
-        <string>이번주 근무 시간</string>
+        <string>이번주 근무시간:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="weekWorkHourLabel">
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </item>
@@ -103,7 +77,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>436</width>
+     <width>439</width>
      <height>22</height>
     </rect>
    </property>
