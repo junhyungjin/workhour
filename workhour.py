@@ -45,14 +45,16 @@ class MyWindow(QMainWindow, form_class):
         if self.weekWorkHour > cur_date:
             lateTime = self.weekWorkHour - cur_date
             addWorkTime = (lateTime)/2
+            endWorkTime = cur_date + datetime.timedelta(hours=9) - addWorkTime
         else:
             lateTime = cur_date - self.weekWorkHour
             addWorkTime = (lateTime)/2
+            endWorkTime = cur_date + datetime.timedelta(hours=9) + addWorkTime
             
         self.addWorkHourLabel.setText(str(addWorkTime))
         self.lateWorkLabel.setText(str(lateTime))
         
-        endWorkTime = cur_date + datetime.timedelta(hours=9) + addWorkTime
+       
         endWorkTimeStr = endWorkTime.strftime('%Y-%m-%d %H:%M:%S')
         self.endWorkTimeLabel.setText(endWorkTimeStr)
         
