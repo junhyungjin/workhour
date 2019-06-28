@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>439</width>
-    <height>168</height>
+    <width>438</width>
+    <height>198</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,14 +20,21 @@
       <x>9</x>
       <y>9</y>
       <width>421</width>
-      <height>111</height>
+      <height>139</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>이번주 근무시간:</string>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="1">
       <widget class="QLineEdit" name="startWorkTime"/>
      </item>
-     <item row="2" column="0">
+     <item row="4" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
         <string>퇴근시간:</string>
@@ -41,8 +48,29 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>지각시간:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
       <widget class="QLabel" name="endWorkTimeLabel">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="lateWorkLabel">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="weekWorkHourLabel">
        <property name="text">
         <string/>
        </property>
@@ -55,15 +83,15 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_3">
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_5">
        <property name="text">
-        <string>이번주 근무시간:</string>
+        <string>추가근무시간:</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="weekWorkHourLabel">
+     <item row="3" column="1">
+      <widget class="QLabel" name="addWorkHourLabel">
        <property name="text">
         <string/>
        </property>
@@ -77,7 +105,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>439</width>
+     <width>438</width>
      <height>22</height>
     </rect>
    </property>

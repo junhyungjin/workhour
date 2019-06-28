@@ -40,9 +40,19 @@ class MyWindow(QMainWindow, form_class):
     def startWorkTimeBtn_clicked(self):
         cur_date=datetime.datetime.now()
         now = cur_date.strftime('%Y-%m-%d %H:%M:%S')
-        
         self.startWorkTime.setText(now)
-        endWorkTime = cur_date + datetime.timedelta(hours=9)
+        
+        if self.weekWorkHour > cur_date:
+            lateTime = self.weekWorkHour - cur_date
+            addWorkTime = (lateTime)/2
+        else:
+            lateTime = cur_date - self.weekWorkHour
+            addWorkTime = (lateTime)/2
+            
+        self.addWorkHourLabel.setText(str(addWorkTime))
+        self.lateWorkLabel.setText(str(lateTime))
+        
+        endWorkTime = cur_date + datetime.timedelta(hours=9) + addWorkTime
         endWorkTimeStr = endWorkTime.strftime('%Y-%m-%d %H:%M:%S')
         self.endWorkTimeLabel.setText(endWorkTimeStr)
         
