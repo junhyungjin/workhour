@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>438</width>
-    <height>198</height>
+    <width>439</width>
+    <height>205</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>9</x>
       <y>9</y>
       <width>421</width>
-      <height>139</height>
+      <height>145</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -97,6 +97,20 @@
        </property>
       </widget>
      </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="weekWorkHourChangeBtn">
+       <property name="text">
+        <string>변경</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QCheckBox" name="endWorkAlarmChkBox">
+       <property name="text">
+        <string>퇴근시간 알람</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
   </widget>
@@ -105,7 +119,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>438</width>
+     <width>439</width>
      <height>22</height>
     </rect>
    </property>

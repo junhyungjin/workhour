@@ -16,13 +16,7 @@ import datetime
 form_class = uic.loadUiType("workhour.ui")[0]
 
 class MyWindow(QMainWindow, form_class):    
-    
-    startWorkHour = 0
-    lateWorkHour = 0
-    endWorkHour = 0
-    
-    
-      
+        
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -36,6 +30,26 @@ class MyWindow(QMainWindow, form_class):
         self.timer.timeout.connect(self.timeout)
         self.weekWorkHourLabel.setText(str(self.weekWorkHour))
         self.startWorkTimeBtn.clicked.connect(self.startWorkTimeBtn_clicked)
+        self.weekWorkHourChangeBtn.clicked.connect(self.weekWorkHourChangeBtn_clicked)
+        self.endWorkAlarmChkBox.stateChanged.connect(self.endWorkAlarmChkBoxState)
+        
+        
+    def endWorkAlarmChkBoxState(self):
+        msg = ""
+        if self.endWorkAlarmChkBox.isChecked() == True:
+            msg = "Alarm 설정되었습니다"
+            self.statusBar().showMessage(msg)
+        
+    def weekWorkHourChangeBtn_clicked(self):
+        text, ok = QInputDialog.getText(self, '이번주 근무 시간','근무 시작 시간을 입력하세요 ex) 09:30:00')
+        if ok:
+            cur_date=datetime.datetime.now()
+            self.weekWorkHour = datetime.datetime.strptime(str(cur_date.year) + \
+                                              '-'+ str(cur_date.month) +'-'+\
+                                              str(cur_date.day) +\
+                                              ' '+str(text), '%Y-%m-%d %H:%M:%S')
+            self.weekWorkHourLabel.setText(str(self.weekWorkHour))
+        
         
     def startWorkTimeBtn_clicked(self):
         cur_date=datetime.datetime.now()
@@ -44,7 +58,7 @@ class MyWindow(QMainWindow, form_class):
         
         if self.weekWorkHour > cur_date:
             lateTime = self.weekWorkHour - cur_date
-            addWorkTime = (lateTime)/2
+            addWorkTime = lateTime
             endWorkTime = cur_date + datetime.timedelta(hours=9) - addWorkTime
         else:
             lateTime = cur_date - self.weekWorkHour
@@ -53,15 +67,14 @@ class MyWindow(QMainWindow, form_class):
             
         self.addWorkHourLabel.setText(str(addWorkTime))
         self.lateWorkLabel.setText(str(lateTime))
-        
-       
+          
         endWorkTimeStr = endWorkTime.strftime('%Y-%m-%d %H:%M:%S')
         self.endWorkTimeLabel.setText(endWorkTimeStr)
         
     def timeout(self):
         cur_time = QTime.currentTime()
         str_time = cur_time.toString("hh:mm:ss")
-        self.statusBar().showMessage(str_time)
+        self.statusBar().showMessage("현재시간: "+str_time)
         
 if __name__ == "__main__":
     app = QApplication(sys.argv)
