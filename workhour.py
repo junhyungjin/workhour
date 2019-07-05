@@ -42,7 +42,7 @@ class MyWindow(QMainWindow, form_class):
         if self.weekWorkHour > startWorkTime:
             lateTime = self.weekWorkHour - startWorkTime
             addWorkTime = lateTime
-            endWorkTime = startWorkTime + datetime.timedelta(hours=9) - addWorkTime
+            endWorkTime = startWorkTime + datetime.timedelta(hours=9)
             self.lateWorkLabel.setText('-'+str(lateTime))
             self.addWorkHourLabel.setText('-'+str(addWorkTime))
         else:
@@ -80,7 +80,7 @@ class MyWindow(QMainWindow, form_class):
         if self.weekWorkHour > cur_date:
             lateTime = self.weekWorkHour - cur_date
             addWorkTime = lateTime
-            endWorkTime = cur_date + datetime.timedelta(hours=9) - addWorkTime
+            endWorkTime = cur_date + datetime.timedelta(hours=9)
             self.lateWorkLabel.setText('-'+str(lateTime))
             self.addWorkHourLabel.setText('-'+str(addWorkTime))
         else:
